@@ -5,6 +5,7 @@ const { NotImplementedError } = require('../lib');
 * Implement simple binary search tree according to task description
 * using Node from extensions
 */
+
 class BinarySearchTree {
   constructor() {
     this._root = null;
@@ -15,7 +16,11 @@ class BinarySearchTree {
   }
 
   add(data) {
-    const node = new Node(data);
+    const node = {
+      data,
+      left: null,
+      right: null
+    };
 
     if (this._root === null) {
       this._root = node;
@@ -24,7 +29,7 @@ class BinarySearchTree {
 
     let current = this._root;
 
-    while (current) {
+    while (current !== null) {
       if (data === current.data) {
         return;
       }
@@ -50,7 +55,7 @@ class BinarySearchTree {
   find(data) {
     let current = this._root;
 
-    while (current) {
+    while (current !== null) {
       if (data === current.data) {
         return current;
       }
